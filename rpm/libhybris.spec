@@ -185,24 +185,24 @@ Requires: %{name}-libsync = %{version}-%{release}
 %description libsync-devel
 %{summary}.
 
-#%package libnfc
-#Summary: Near Field Communication for %{name}
-#Requires(post): /sbin/ldconfig
-#Requires(postun): /sbin/ldconfig
-#Requires: %{name} = %{version}-%{release}
+%package libnfc
+Summary: Near Field Communication for %{name}
+Requires(post): /sbin/ldconfig
+Requires(postun): /sbin/ldconfig
+Requires: %{name} = %{version}-%{release}
 
-#%description libnfc
-#%{summary}.
-#
-#%package libnfc-devel
-#Summary: Near Field Communication development library for %{name}
-#Requires(post): /sbin/ldconfig
-#Requires(postun): /sbin/ldconfig
-#Requires: %{name} = %{version}-%{release}
-#Requires: %{name}-libnfc = %{version}-%{release}
+%description libnfc
+%{summary}.
 
-#%description libnfc-devel
-#%{summary}.
+%package libnfc-devel
+Summary: Near Field Communication development library for %{name}
+Requires(post): /sbin/ldconfig
+Requires(postun): /sbin/ldconfig
+Requires: %{name} = %{version}-%{release}
+Requires: %{name}-libnfc = %{version}-%{release}
+
+%description libnfc-devel
+%{summary}.
 
 %package libvibrator
 Summary: Vibrator for %{name}
@@ -328,8 +328,8 @@ rm %{buildroot}/%{_libdir}/*.la %{buildroot}/%{_libdir}/libhybris/*.la
 %post libsync -p /sbin/ldconfig
 %postun libsync -p /sbin/ldconfig
 
-#%post libnfc -p /sbin/ldconfig
-#%postun libnfc -p /sbin/ldconfig
+%post libnfc -p /sbin/ldconfig
+%postun libnfc -p /sbin/ldconfig
 
 %post libvibrator -p /sbin/ldconfig
 %postun libvibrator -p /sbin/ldconfig
@@ -466,14 +466,14 @@ rm %{buildroot}/%{_libdir}/*.la %{buildroot}/%{_libdir}/libhybris/*.la
 %{_libdir}/libsync.so
 %{_libdir}/pkgconfig/libsync.pc
 
-#%files libnfc
-#%defattr(-,root,root,-)
-#%{_libdir}/libnfc_*.so.*
+%files libnfc
+%defattr(-,root,root,-)
+%{_libdir}/libnfc_*.so.*
 
-#%files libnfc-devel
-#%defattr(-,root,root,-)
-#%{_libdir}/libnfc_*.so
-#%{_libdir}/pkgconfig/libnfc_*.pc
+%files libnfc-devel
+%defattr(-,root,root,-)
+%{_libdir}/libnfc_*.so
+%{_libdir}/pkgconfig/libnfc_*.pc
 
 %files libvibrator
 %defattr(-,root,root,-)
@@ -503,7 +503,7 @@ rm %{buildroot}/%{_libdir}/*.la %{buildroot}/%{_libdir}/libhybris/*.la
 %{_bindir}/test_gps
 %{_bindir}/test_hwcomposer
 %{_bindir}/test_lights
-#%{_bindir}/test_nfc
+%{_bindir}/test_nfc
 %{_bindir}/test_opencl
 %{_bindir}/test_sensors
 %{_bindir}/test_vibrator
